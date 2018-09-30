@@ -7,7 +7,7 @@ fi
 
 CUE_FILE=$1
 
-shnsplit -t "%n - %p - %t" -o flac -f ${CUE_FILE} ${CUE_FILE}.flac || exit 1
+shnsplit -t "%n - %p - %t" -o flac -f ${CUE_FILE} ${CUE_FILE%%.cue}.flac || exit 1
 rm ${CUE_FILE}
 rm ${CUE_FILE%%.flac}.flac
 
