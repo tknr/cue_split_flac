@@ -1,14 +1,15 @@
 #!/bin/bash -x
 IFS=$'\n'
 if [ $# -ne 1 ]; then
-        echo "usage: ${0##*/} <target flac file>"
+        echo "usage: ${0##*/} <target cue file>"
         exit 1;
 fi
 
-FLAC_FILE=$1
+CUE_FILE=$1
 
-shnsplit -t "%n - %p - %t" -o flac -f ${FLAC_FILE%%.flac}.cue ${FLAC_FILE} || exit 1
-rm ${FLAC_FILE}
-rm ${FLAC_FILE%%.flac}.cue
+shnsplit -t "%n - %p - %t" -o flac -f ${CUE_FILE} ${CUE_FILE}.flac || exit 1
+rm ${CUE_FILE}
+rm ${CUE_FILE%%.flac}.flac
+
 
 
